@@ -1,0 +1,9 @@
+{
+  "files.exclude": {
+    ".godot": true
+  },
+  "search.exclude": {
+    ".godot": true,
+    "builds": true
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "talent_forest_hunter": { "id": "talent_forest_hunter", "name": "森林猎手", "passive_modifiers": [ { "stat": "dexterity", "value": 2, "type": "add" } ], "event_trigger": "" },
+  "talent_lucky": { "id": "talent_lucky", "name": "幸运", "passive_modifiers": [], "event_trigger": "loot_roll", "effect": { "loot_chance": 0.1 } },
+  "talent_master_trader": { "id": "talent_master_trader", "name": "交易大师", "passive_modifiers": [ { "stat": "shop_price", "value": -10, "type": "percent" } ], "event_trigger": "" }
+}

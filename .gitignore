@@ -1,0 +1,26 @@
+# Godot 4
+.godot/
+*.tmp
+*.temp
+
+# 导出构建产物
+/builds/*
+!/builds/.gitkeep
+/export/
+*.pck
+*.zip
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.code-workspace
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# 日志
+*.log

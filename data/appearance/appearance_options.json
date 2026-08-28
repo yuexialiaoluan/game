@@ -1,0 +1,24 @@
+{
+  "body": {
+    "human_male": { "id": "human_male", "asset_id": "character_body_human_male_01", "size": [24, 32], "skin": [0.90, 0.72, 0.58, 1], "shape": "body" },
+    "human_female": { "id": "human_female", "asset_id": "character_body_human_female_01", "size": [22, 32], "skin": [0.95, 0.80, 0.68, 1], "shape": "body" }
+  },
+  "face": {
+    "human_male": { "id": "human_male", "asset_id": "character_face_human_male_01", "size": [16, 14], "skin": [0.90, 0.72, 0.58, 1], "shape": "face" },
+    "human_female": { "id": "human_female", "asset_id": "character_face_human_female_01", "size": [15, 13], "skin": [0.95, 0.80, 0.68, 1], "shape": "face" }
+  },
+  "eyes": {
+    "eyes_default_01": { "id": "eyes_default_01", "asset_id": "eyes_default_01", "size": [10, 4], "color": [0.10, 0.12, 0.18, 1], "shape": "eyes" }
+  },
+  "hair": {
+    "hair_short_01": { "id": "hair_short_01", "asset_id": "hair_short_01", "size": [22, 8], "color": [0.45, 0.30, 0.18, 1], "shape": "hair" },
+    "hair_long_01": { "id": "hair_long_01", "asset_id": "hair_long_01", "size": [22, 14], "color": [0.12, 0.12, 0.16, 1], "shape": "hair" },
+    "hair_tied_01": { "id": "hair_tied_01", "asset_id": "hair_tied_01", "size": [22, 10], "color": [0.60, 0.32, 0.20, 1], "shape": "hair" }
+  },
+  "clothing": {
+    "clothing_peasant_01": { "id": "clothing_peasant_01", "asset_id": "clothing_peasant_01", "size": [26, 18], "color": [0.45, 0.42, 0.35, 1], "shape": "clothing" },
+    "clothing_adventurer_01": { "id": "clothing_adventurer_01", "asset_id": "clothing_adventurer_01", "size": [26, 18], "color": [0.30, 0.50, 0.35, 1], "shape": "clothing" },
+    "clothing_light_armor_01": { "id": "clothing_light_armor_01", "asset_id": "clothing_light_armor_01", "size": [27, 19], "color": [0.40, 0.45, 0.55, 1], "shape": "clothing" }
+  }
+}
+

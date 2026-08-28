@@ -1,0 +1,9 @@
+{
+  "human": { "id": "human", "name": "人类", "base_modifiers": [ { "stat": "max_hp", "value": 10, "type": "add" } ], "traits": [] },
+  "elf": { "id": "elf", "name": "精灵", "base_modifiers": [ { "stat": "dexterity", "value": 2, "type": "add" }, { "stat": "initiative", "value": 1, "type": "add" } ], "traits": [] },
+  "dwarf": { "id": "dwarf", "name": "矮人", "base_modifiers": [ { "stat": "constitution", "value": 2, "type": "add" }, { "stat": "defense", "value": 2, "type": "add" } ], "traits": [] },
+  "orc": { "id": "orc", "name": "兽人", "base_modifiers": [ { "stat": "strength", "value": 2, "type": "add" } ], "traits": [] },
+  "goblin": { "id": "goblin", "name": "哥布林", "base_modifiers": [ { "stat": "dexterity", "value": 1, "type": "add" } ], "traits": [] },
+  "demon": { "id": "demon", "name": "魔族", "base_modifiers": [ { "stat": "magic_attack", "value": 5, "type": "add" } ], "traits": [] },
+  "creature": { "id": "creature", "name": "生物", "base_modifiers": [], "traits": [] }
+}

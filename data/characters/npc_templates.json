@@ -1,0 +1,5 @@
+{
+  "human_male_01": { "id": "human_male_01", "body_id": "human_male", "face_id": "human_male", "hair_id": "hair_short_01", "clothing_id": "clothing_peasant_01", "equipment": {} },
+  "human_female_01": { "id": "human_female_01", "body_id": "human_female", "face_id": "human_female", "hair_id": "hair_long_01", "clothing_id": "clothing_adventurer_01", "equipment": {} },
+  "human_male_armored_01": { "id": "human_male_armored_01", "body_id": "human_male", "face_id": "human_male", "hair_id": "hair_short_01", "clothing_id": "clothing_peasant_01", "equipment": { "torso": "armor_iron_01", "helmet": "helmet_iron_01", "weapon": "weapon_iron_sword_01", "shield": "shield_wood_01" } }
+}

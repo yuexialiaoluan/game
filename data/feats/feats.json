@@ -1,0 +1,4 @@
+{
+  "feat_dual_wield_test": { "id": "feat_dual_wield_test", "name": "双持(测试)", "modifiers": [ { "stat": "attack", "value": 2, "type": "add" } ] },
+  "feat_armor_master_test": { "id": "feat_armor_master_test", "name": "护甲大师(测试)", "modifiers": [ { "stat": "defense", "value": 5, "type": "add" } ] }
+}

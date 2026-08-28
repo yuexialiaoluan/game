@@ -1,0 +1,4 @@
+{
+  "portrait_male_01": { "id": "portrait_male_01", "asset_id": "portrait_male_01", "size": [48, 64], "skin": [0.90, 0.72, 0.58, 1], "hair": [0.45, 0.30, 0.18, 1], "cloth": [0.45, 0.42, 0.35, 1] },
+  "portrait_female_01": { "id": "portrait_female_01", "asset_id": "portrait_female_01", "size": [48, 64], "skin": [0.95, 0.80, 0.68, 1], "hair": [0.12, 0.12, 0.16, 1], "cloth": [0.30, 0.50, 0.35, 1] }
+}

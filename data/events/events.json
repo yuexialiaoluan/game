@@ -1,0 +1,57 @@
+[
+  {
+    "id": "event_iva_reward",
+    "type": "quest",
+    "trigger": "on_test_reward",
+    "priority": 0,
+    "state": "pending",
+    "conditions": {
+      "type": "all",
+      "conditions": [
+        { "type": "level", "subject": "player", "operator": ">=", "value": 5 },
+        { "type": "currency", "key": "gold", "operator": ">=", "value": 100 },
+        { "type": "relationship", "subject": "player", "target": "iva", "key": "affinity", "operator": ">=", "value": 50 }
+      ]
+    },
+    "effects": [
+      { "type": "remove_gold", "amount": 100 },
+      { "type": "set_story_flag", "flag": "iva_test", "value": true },
+      { "type": "add_xp", "amount": 500 }
+    ]
+  },
+  {
+    "id": "event_enemy_surrender",
+    "type": "combat",
+    "trigger": "on_actor_surrendered",
+    "priority": 0,
+    "state": "pending",
+    "conditions": {
+      "type": "actor_state",
+      "subject": "actor:enemy_01",
+      "operator": "==",
+      "value": "Surrendered"
+    },
+    "effects": [
+      { "type": "change_state", "subject": "actor:enemy_01", "value": "Surrendered" },
+      { "type": "add_to_party", "subject": "actor:enemy_01" }
+    ]
+  },
+  {
+    "id": "event_rain_night_enter",
+    "type": "world",
+    "trigger": "on_enter_location",
+    "priority": 0,
+    "state": "pending",
+    "conditions": {
+      "type": "all",
+      "conditions": [
+        { "type": "time", "operator": ">=", "value": 18 },
+        { "type": "weather", "operator": "==", "value": "rain" }
+      ]
+    },
+    "effects": [
+      { "type": "set_world_state", "scope": "location", "key": "test_area", "field": "night_rain", "value": true },
+      { "type": "set_story_flag", "flag": "world_interaction_done", "value": true }
+    ]
+  }
+]

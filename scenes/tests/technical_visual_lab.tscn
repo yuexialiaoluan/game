@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bnotoih4yr03o"]
+
+[ext_resource type="Script" uid="uid://habtadt78kkx" path="res://scripts/tests/technical_visual_lab.gd" id="1"]
+
+[node name="TechnicalVisualLab" type="Node3D" unique_id=235731206]
+script = ExtResource("1")

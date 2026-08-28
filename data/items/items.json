@@ -1,0 +1,5 @@
+{
+  "healing_potion": { "id": "healing_potion", "name": "治疗药水", "type": "consumable" },
+  "iron_ore": { "id": "iron_ore", "name": "铁矿石", "type": "material" },
+  "wood": { "id": "wood", "name": "木材", "type": "material" }
+}
