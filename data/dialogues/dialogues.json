@@ -1,0 +1,19 @@
+{
+  "dialogue_blacksmith_iron": {
+    "id": "dialogue_blacksmith_iron",
+    "speaker": "blacksmith_test",
+    "text": "dialogue_blacksmith_iron.line_01",
+    "choices": [
+      { "id": "help", "text": "dialogue_blacksmith_iron.help", "conditions": { "type": "quest", "key": "quest_iron_ore", "operator": "==", "value": "Available" }, "effects": [ { "type": "accept_quest", "quest_id": "quest_iron_ore" } ] },
+      { "id": "decline", "text": "dialogue_blacksmith_iron.decline", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "declined_iron", "value": true } ] }
+    ]
+  },
+  "dialogue_persuade": {
+    "id": "dialogue_persuade",
+    "speaker": "npc_test",
+    "text": "dialogue_persuade.line_01",
+    "choices": [
+      { "id": "persuade", "text": "dialogue_persuade.persuade", "conditions": {}, "effects": [ { "type": "run_action", "action_id": "persuade", "target_type": "actor", "target_id": "npc_test" } ] }
+    ]
+  }
+}

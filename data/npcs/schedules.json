@@ -1,0 +1,5 @@
+{
+  "villager_default": { "id": "villager_default", "entries": [ { "hour": 8, "activity": "Work", "location": "farm" }, { "hour": 18, "activity": "Tavern", "location": "tavern" }, { "hour": 22, "activity": "Home", "location": "house" } ] },
+  "smith_default": { "id": "smith_default", "entries": [ { "hour": 8, "activity": "Work", "location": "smithy" }, { "hour": 20, "activity": "Home", "location": "house" } ] },
+  "guard_patrol": { "id": "guard_patrol", "entries": [ { "hour": 0, "activity": "Patrol", "location": "town" } ] }
+}

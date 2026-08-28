@@ -1,0 +1,5 @@
+[
+  { "id": "trig_quest_available", "trigger": "on_quest_available", "conditions": { "type": "quest", "key": "quest_iron_ore", "operator": "==", "value": "Available" }, "effects": [ { "type": "set_story_flag", "flag": "trig_quest_available", "value": true } ] },
+  { "id": "trig_time_night", "trigger": "on_time_night", "conditions": { "type": "time", "operator": ">=", "value": 21 }, "effects": [ { "type": "set_story_flag", "flag": "trig_time_night", "value": true } ] },
+  { "id": "trig_weather_rain", "trigger": "on_weather_rain", "conditions": { "type": "weather", "operator": "==", "value": "rain" }, "effects": [ { "type": "set_story_flag", "flag": "trig_weather_rain", "value": true } ] }
+]

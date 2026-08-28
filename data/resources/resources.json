@@ -1,0 +1,3 @@
+{
+  "iron_node": { "id": "iron_node", "resource_id": "iron_ore", "quantity": 3, "respawn_time": 600, "conditions": [] }
+}

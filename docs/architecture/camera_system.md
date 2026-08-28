@@ -22,3 +22,6 @@
 
 ## 依赖
 World/Scene、Combat、Dialogue、Cutscene、Input（视情况）。
+
+## Battle Camera
+独立 CombatCamera，与 World Camera 分离。

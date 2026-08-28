@@ -12,6 +12,12 @@ var relationship_state: Dictionary = {}
 var faction_state: Dictionary = {}
 var economy_state: Dictionary = {}
 var time_state: Dictionary = {}
+var weather_state: Dictionary = {}
+var npc_state: Dictionary = {}
+var crime_state: Dictionary = {}
+var stealth_state: Dictionary = {}
+var suspicion_state: Dictionary = {}
+var encounter_state: Dictionary = {}
 var event_state: Dictionary = {}
 var settings_state: Dictionary = {}
 
@@ -31,6 +37,12 @@ func to_dict() -> Dictionary:
 		"faction_state": faction_state.duplicate(),
 		"economy_state": economy_state.duplicate(),
 		"time_state": time_state.duplicate(),
+		"weather_state": weather_state.duplicate(),
+		"npc_state": npc_state.duplicate(),
+		"crime_state": crime_state.duplicate(),
+		"stealth_state": stealth_state.duplicate(),
+		"suspicion_state": suspicion_state.duplicate(),
+		"encounter_state": encounter_state.duplicate(),
 		"event_state": event_state.duplicate(),
 		"settings_state": settings_state.duplicate(),
 	}
@@ -46,5 +58,14 @@ func from_dict(d: Dictionary) -> void:
 	faction_state = (d.get("faction_state", {}) as Dictionary).duplicate()
 	economy_state = (d.get("economy_state", {}) as Dictionary).duplicate()
 	time_state = (d.get("time_state", {}) as Dictionary).duplicate()
+	weather_state = (d.get("weather_state", {}) as Dictionary).duplicate()
+	npc_state = (d.get("npc_state", {}) as Dictionary).duplicate()
+	crime_state = (d.get("crime_state", {}) as Dictionary).duplicate()
+	stealth_state = (d.get("stealth_state", {}) as Dictionary).duplicate()
+	suspicion_state = (d.get("suspicion_state", {}) as Dictionary).duplicate()
+	encounter_state = (d.get("encounter_state", {}) as Dictionary).duplicate()
 	event_state = (d.get("event_state", {}) as Dictionary).duplicate()
 	settings_state = (d.get("settings_state", {}) as Dictionary).duplicate()
+
+
+

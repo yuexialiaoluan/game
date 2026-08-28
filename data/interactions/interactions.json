@@ -1,0 +1,9 @@
+{
+  "chest": { "id": "chest", "name": "箱子", "actions": ["inspect", "open", "close", "steal"] },
+  "door": { "id": "door", "name": "门", "actions": ["inspect", "open", "lockpick", "break"] },
+  "npc": { "id": "npc", "name": "NPC", "actions": ["talk", "inspect", "persuade", "threaten"] },
+  "resource_node": { "id": "resource_node", "name": "资源点", "actions": ["inspect", "harvest"] },
+  "fishing_spot": { "id": "fishing_spot", "name": "钓鱼点", "actions": ["inspect", "fish"] },
+  "bed": { "id": "bed", "name": "床", "actions": ["inspect", "sleep"] },
+  "crafting_station": { "id": "crafting_station", "name": "工作台", "actions": ["inspect", "craft"] }
+}

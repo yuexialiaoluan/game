@@ -1,0 +1,25 @@
+{
+  "quest_iron_ore": {
+    "id": "quest_iron_ore",
+    "title": "quest_iron_ore.title",
+    "description": "quest_iron_ore.desc",
+    "type": "side",
+    "accept_conditions": { "type": "all", "conditions": [ { "type": "relationship", "subject": "player", "target": "blacksmith_test", "key": "affinity", "operator": ">=", "value": 10 } ] },
+    "objectives": [ { "id": "collect_iron", "type": "collect", "item": "iron_ore", "target": 3, "progress": 0 } ],
+    "rewards": [
+      { "type": "add_gold", "amount": 100 },
+      { "type": "modify_relationship", "subject": "player", "target": "blacksmith_test", "key": "affinity", "amount": 5 },
+      { "type": "set_world_state", "scope": "location", "key": "village", "field": "iron_delivered", "value": true },
+      { "type": "set_story_flag", "flag": "quest_iron_ore_done", "value": true }
+    ]
+  },
+  "quest_collect_iron": {
+    "id": "quest_collect_iron",
+    "title": "quest_collect_iron.title",
+    "description": "quest_collect_iron.desc",
+    "type": "side",
+    "accept_conditions": {},
+    "objectives": [ { "id": "harvest_iron", "type": "collect", "item": "iron_ore", "target": 3, "progress": 0 } ],
+    "rewards": [ { "type": "add_gold", "amount": 50 } ]
+  }
+}

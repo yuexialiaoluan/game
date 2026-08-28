@@ -25,3 +25,6 @@
 
 ## 依赖
 World、Location、Camera、Save、Event。
+
+## Combat Scene
+World 暂停 → Combat Scene → 结束销毁 → World 恢复。

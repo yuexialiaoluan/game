@@ -102,8 +102,9 @@ func _run_validation() -> void:
 	_check(player.has_item("iron_ore"), "Effect 添加物品")
 	EffectExecutor.execute({ "type": "add_status", "id": "status_attack_up" }, ctx)
 	_check(player.status_effects.size() > 0, "Effect 添加状态")
+	var hp_before: float = player.get_hp()
 	EffectExecutor.execute({ "type": "modify_hp", "amount": -10 }, ctx)
-	_check(float(gs.player_state.get("hp", 0.0)) == -10.0, "Effect 修改 HP")
+	_check(player.get_hp() == hp_before - 10.0, "Effect 修改 HP")
 	EffectExecutor.execute({ "type": "sequence", "effects": [
 		{ "type": "add_gold", "amount": 20 },
 		{ "type": "set_story_flag", "flag": "seq_flag", "value": true }
@@ -163,3 +164,4 @@ func _check(cond: bool, name: String) -> void:
 	else:
 		print("FAIL ", name)
 		validation_failures += 1
+

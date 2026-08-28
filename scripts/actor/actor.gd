@@ -21,8 +21,12 @@ var relationships: Dictionary = {}
 var faction_id: String = ""
 var reputation: Dictionary = {}
 var state: String = "Alive"
+var current_hp: float = 0.0
+var current_mp: float = 0.0
 
 var visual: CharacterVisual = null
+var appearance: Dictionary = {}
+var background_id: String = ""
 
 func setup(p_db: GameplayDB, p_id: String, p_identity: Identity, p_race_id: String, p_classes: Dictionary) -> void:
 	db = p_db
@@ -35,6 +39,8 @@ func setup(p_db: GameplayDB, p_id: String, p_identity: Identity, p_race_id: Stri
 	progression = Progression.new()
 	progression.setup(db.level_table.get("xp_to_next", []) as Array)
 	recalculate()
+	current_hp = get_stat("max_hp")
+	current_mp = get_stat("max_mp")
 
 func set_base(stat: String, value: float) -> void:
 	attributes.set_base(stat, value)
@@ -180,3 +186,141 @@ func set_state(s: String) -> void:
 	state = s
 
 
+
+func capture_appearance() -> void:
+	if visual != null:
+		appearance = {
+			"body_id": visual.body_id,
+			"face_id": visual.face_id,
+			"hair_id": visual.hair_id,
+			"clothing_id": visual.clothing_id,
+			"eyes_id": visual.eyes_id
+		}
+
+func apply_appearance() -> void:
+	if visual != null:
+		visual.set_body(str(appearance.get("body_id", "human_male")))
+		visual.set_face(str(appearance.get("face_id", "human_male")))
+		visual.set_hair(str(appearance.get("hair_id", "hair_short_01")))
+		visual.set_clothing(str(appearance.get("clothing_id", "clothing_peasant_01")))
+		visual.set_eyes(str(appearance.get("eyes_id", "eyes_default_01")))
+
+func to_save_data() -> Dictionary:
+	capture_appearance()
+	return {
+		"id": id,
+		"identity": {
+			"character_id": identity.character_id,
+			"display_name": identity.display_name,
+			"gender": identity.gender,
+			"age": identity.age,
+			"race_id": identity.race_id,
+			"background": identity.background
+		},
+		"race_id": race_id,
+		"classes": classes.duplicate(),
+		"skills": skills.duplicate(),
+		"feats": feats.duplicate(),
+		"talents": talents.duplicate(),
+		"base_attributes": attributes.base.duplicate(),
+		"progression": { "level": progression.level, "xp": progression.xp, "attribute_points": progression.attribute_points },
+		"equipment": equipment.duplicate(),
+		"inventory": inventory.duplicate(),
+		"relationships": _relationships_to_dict(),
+		"faction_id": faction_id,
+		"reputation": reputation.duplicate(),
+		"state": state,
+		"current_hp": current_hp,
+		"current_mp": current_mp,
+		"background_id": background_id,
+		"appearance": appearance.duplicate()
+	}
+
+func apply_save_data(d: Dictionary, p_db: GameplayDB) -> void:
+	db = p_db
+	id = str(d.get("id", ""))
+	var idict: Dictionary = d.get("identity", {}) as Dictionary
+	identity = Identity.new()
+	identity.character_id = str(idict.get("character_id", ""))
+	identity.display_name = str(idict.get("display_name", ""))
+	identity.gender = str(idict.get("gender", ""))
+	identity.age = int(idict.get("age", 0))
+	identity.race_id = str(idict.get("race_id", ""))
+	identity.background = str(idict.get("background", ""))
+
+	race_id = str(d.get("race_id", ""))
+	classes = (d.get("classes", {}) as Dictionary).duplicate()
+	skills = (d.get("skills", {}) as Dictionary).duplicate()
+	feats = (d.get("feats", []) as Array).duplicate()
+	talents = (d.get("talents", []) as Array).duplicate()
+
+	attributes = Attributes.new()
+	attributes.base = (d.get("base_attributes", {}) as Dictionary).duplicate()
+	modifiers = ModifierList.new()
+	progression = Progression.new()
+	progression.setup(db.level_table.get("xp_to_next", []) as Array)
+	var prog: Dictionary = d.get("progression", {}) as Dictionary
+	progression.level = int(prog.get("level", 1))
+	progression.xp = int(prog.get("xp", 0))
+	progression.attribute_points = int(prog.get("attribute_points", 0))
+
+	equipment = (d.get("equipment", {}) as Dictionary).duplicate()
+	inventory = (d.get("inventory", {}) as Dictionary).duplicate()
+	relationships = _relationships_from_dict(d.get("relationships", {}) as Dictionary)
+	faction_id = str(d.get("faction_id", ""))
+	reputation = (d.get("reputation", {}) as Dictionary).duplicate()
+	state = str(d.get("state", "Alive"))
+	background_id = str(d.get("background_id", ""))
+	appearance = (d.get("appearance", {}) as Dictionary).duplicate()
+	recalculate()
+	current_hp = float(d.get("current_hp", get_stat("max_hp")))
+	current_mp = float(d.get("current_mp", get_stat("max_mp")))
+
+func _relationships_to_dict() -> Dictionary:
+	var out := {}
+	for target in relationships:
+		var rs = relationships[target]
+		out[target] = {
+			"affinity": float(rs.get("affinity")),
+			"trust": float(rs.get("trust")),
+			"fear": float(rs.get("fear")),
+			"respect": float(rs.get("respect")),
+			"hostility": float(rs.get("hostility"))
+		}
+	return out
+
+func _relationships_from_dict(d: Dictionary) -> Dictionary:
+	var out := {}
+	for target in d:
+		var rd: Dictionary = d[target]
+		var rs := RelationshipState.new()
+		rs.source = id
+		rs.target = str(target)
+		rs.affinity = float(rd.get("affinity", 0.0))
+		rs.trust = float(rd.get("trust", 0.0))
+		rs.fear = float(rd.get("fear", 0.0))
+		rs.respect = float(rd.get("respect", 0.0))
+		rs.hostility = float(rd.get("hostility", 0.0))
+		out[str(target)] = rs
+	return out
+
+
+
+
+func get_hp() -> float:
+	return current_hp
+
+func max_hp() -> float:
+	return get_stat("max_hp")
+
+func set_hp(value: float) -> void:
+	current_hp = clampf(value, 0.0, max_hp())
+
+func damage(amount: float) -> void:
+	set_hp(current_hp - amount)
+
+func heal(amount: float) -> void:
+	set_hp(current_hp + amount)
+
+func is_dead() -> bool:
+	return current_hp <= 0.0

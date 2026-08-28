@@ -1,0 +1,4 @@
+{
+  "goblin_warrior": { "gold": [10, 20], "items": [ { "id": "goblin_tooth", "weight": 60 } ] },
+  "goblin_mage": { "gold": [10, 25], "items": [ { "id": "mana_dust", "weight": 60 } ] }
+}

@@ -18,3 +18,6 @@
 
 ## 依赖
 Data Model、Localization、Testing（数据校验）、RNG（随机内容解析）。
+
+## 新增内容
+data/actions、data/interactions、data/resources、data/fishing 由 ContentDB 加载。

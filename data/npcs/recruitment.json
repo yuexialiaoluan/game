@@ -1,0 +1,9 @@
+{
+  "villager": { "id": "villager", "can_recruit": true, "conditions": { "type": "relationship", "subject": "player", "target": "villager", "key": "affinity", "operator": ">=", "value": 60 }, "cost": {}, "effects": [] },
+  "mercenary": { "id": "mercenary", "can_recruit": true, "conditions": { "type": "currency", "key": "gold", "operator": ">=", "value": 300 }, "cost": { "type": "remove_gold", "amount": 300 }, "effects": [] },
+  "bandit": { "id": "bandit", "can_recruit": true, "conditions": { "type": "all", "conditions": [ { "type": "actor_state", "subject": "actor:bandit", "operator": "==", "value": "Surrendered" }, { "type": "relationship", "subject": "player", "target": "bandit", "key": "affinity", "operator": ">=", "value": 30 } ] }, "cost": {}, "effects": [] },
+  "goblin": { "id": "goblin", "can_recruit": true, "conditions": { "type": "all", "conditions": [ { "type": "actor_state", "subject": "actor:goblin", "operator": "==", "value": "Surrendered" }, { "type": "inventory", "subject": "player", "key": "goblin_trinket", "operator": ">=", "value": 1 } ] }, "cost": {}, "effects": [] }
+
+,
+  "quest_npc": { "id": "quest_npc", "can_recruit": true, "conditions": { "type": "quest", "key": "quest_collect_iron", "operator": "==", "value": "Completed" }, "cost": {}, "effects": [] }
+}

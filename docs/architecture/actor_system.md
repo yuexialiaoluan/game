@@ -33,3 +33,6 @@ Actor 的“角色身份”是可变状态，不是不可逆类型：
 ## 依赖
 - 依赖 Data Model、Condition/Effect、Event、Save。
 - 不依赖地图、剧情、UI。
+
+## HP
+HP/MP 统一在 Actor，Player/NPC/Enemy/Creature/Companion 共用。

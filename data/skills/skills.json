@@ -2,4 +2,9 @@
   "skill_attack_test": { "id": "skill_attack_test", "name": "攻击(测试)", "cost": 0, "range": 1, "target": "enemy", "cooldown": 0, "tags": ["attack"], "requirements": [], "effects": [ { "type": "damage", "value": 10 } ] },
   "skill_heal_test": { "id": "skill_heal_test", "name": "治疗(测试)", "cost": 5, "range": 1, "target": "ally", "cooldown": 0, "tags": ["heal"], "requirements": [], "effects": [ { "type": "heal", "value": 12 } ] },
   "skill_buff_test": { "id": "skill_buff_test", "name": "强化(测试)", "cost": 3, "range": 0, "target": "self", "cooldown": 0, "tags": ["buff"], "requirements": [], "effects": [ { "type": "status", "value": "status_attack_up" } ] }
+
+,
+  "fire_bolt": { "id": "fire_bolt", "name": "火球术", "cost": 1, "range": 3, "target": "enemy", "damage": 18, "effects": [ { "type": "damage", "value": 18 }, { "type": "status", "value": "status_burn" } ] },
+  "fire_burst": { "id": "fire_burst", "name": "火焰爆发", "cost": 1, "range": 3, "target": "area", "area_radius": 1, "damage": 12, "effects": [ { "type": "damage", "value": 12 }, { "type": "status", "value": "status_burn" } ] },
+  "heal": { "id": "heal", "name": "治疗术", "cost": 1, "range": 3, "target": "ally", "effects": [ { "type": "heal", "value": 18 } ] }
 }

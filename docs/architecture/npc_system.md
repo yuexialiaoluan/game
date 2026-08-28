@@ -22,3 +22,8 @@ NPC 可工作、休息、移动、交易、战斗、逃跑、投降、对话、�
 
 ## 依赖
 Actor、Appearance、Faction/Relationship、AI、Condition/Effect、Recruitment、Quest、RNG、Save。
+
+## Runtime
+行为状态见 
+pc_runtime.md、
+pc_schedule.md。

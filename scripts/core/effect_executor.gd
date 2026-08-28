@@ -46,7 +46,13 @@ static func execute(effect, ctx: EvaluatorContext) -> void:
 			if actor != null:
 				_remove_status(actor, str(effect.get("id", "")))
 		"modify_hp":
-			ctx.game_state.player_state["hp"] = float(ctx.game_state.player_state.get("hp", 0.0)) + amount
+			if ctx.player != null:
+				if amount >= 0.0:
+					ctx.player.heal(amount)
+				else:
+					ctx.player.damage(-amount)
+			else:
+				ctx.game_state.player_state["hp"] = float(ctx.game_state.player_state.get("hp", 0.0)) + amount
 		"modify_mp":
 			ctx.game_state.player_state["mp"] = float(ctx.game_state.player_state.get("mp", 0.0)) + amount
 		"modify_attribute":
@@ -124,15 +130,69 @@ static func execute(effect, ctx: EvaluatorContext) -> void:
 			if actor != null:
 				ctx.party.erase(actor)
 				actor.set_state("Alive")
+		"accept_quest":
+			if ctx.quest_service != null:
+				ctx.quest_service.accept_quest(str(effect.get("quest_id", "")), ctx)
+		"progress_quest":
+			if ctx.quest_service != null:
+				ctx.quest_service.progress_objective(str(effect.get("quest_id", "")), str(effect.get("objective_id", "")), int(effect.get("amount", 1)), ctx)
+		"complete_quest":
+			if ctx.quest_service != null:
+				ctx.quest_service.complete_quest(str(effect.get("quest_id", "")), ctx)
+		"fail_quest":
+			if ctx.quest_service != null:
+				ctx.quest_service.fail_quest(str(effect.get("quest_id", "")))
 		"teleport":
 			ctx.location = str(value)
+		"advance_time":
+			if ctx.time_service != null:
+				ctx.time_service.advance_minutes(int(effect.get("minutes", 0)))
+			else:
+				ctx.time += float(effect.get("minutes", 0)) / 60.0
+		"advance_hours":
+			if ctx.time_service != null:
+				ctx.time_service.advance_hours(int(effect.get("hours", 0)))
+			else:
+				ctx.time += float(effect.get("hours", 0))
+		"advance_days":
+			if ctx.time_service != null:
+				ctx.time_service.advance_days(int(effect.get("days", 0)))
+			else:
+				ctx.date += int(effect.get("days", 0))
+		"set_time":
+			if ctx.time_service != null:
+				ctx.time_service.set_time(int(effect.get("hour", 0)), int(effect.get("minute", 0)))
+			else:
+				ctx.time = float(effect.get("hour", 0))
+		"set_date":
+			if ctx.time_service != null and ctx.time_service.calendar != null:
+				ctx.time_service.calendar.set_date(int(effect.get("year", 1)), int(effect.get("month", 1)), int(effect.get("day", 1)))
+			else:
+				ctx.date = int(effect.get("day", 1))
+		"set_weather":
+			if ctx.weather_service != null:
+				ctx.weather_service.set_weather(str(effect.get("region", "default")), str(value))
+			else:
+				ctx.weather = str(value)
 		"change_time":
-			if effect.has("value"):
-				ctx.time = float(value)
+			if ctx.time_service != null:
+				ctx.time_service.advance_hours(int(amount))
 			else:
 				ctx.time += amount
 		"change_weather":
-			ctx.weather = str(value)
+			if ctx.weather_service != null:
+				ctx.weather_service.set_weather(str(effect.get("region", "default")), str(value))
+			else:
+				ctx.weather = str(value)
+		"run_action":
+			if ctx.action_service != null:
+				var ttype := str(effect.get("target_type", "object"))
+				var tgt = null
+				if ttype == "actor":
+					tgt = ctx.actors.get(str(effect.get("target_id", "")))
+				else:
+					tgt = ctx.action_service.get_object(str(effect.get("target_id", "")))
+				ctx.action_service.resolve(str(effect.get("action_id", "")), ctx.player, tgt, ctx, ctx.rng)
 		"trigger_event":
 			if ctx.event_bus != null:
 				ctx.event_bus.emit(str(effect.get("event", "")), ctx)
@@ -175,3 +235,7 @@ static func _set_world_state(ctx: EvaluatorContext, effect) -> void:
 			ctx.game_state.world.set_value(scope, key, cur)
 		else:
 			ctx.game_state.world.set_value(scope, key, { field: value })
+
+
+
+

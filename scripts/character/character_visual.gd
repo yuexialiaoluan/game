@@ -69,6 +69,10 @@ func set_body(id: String) -> void:
 	body_id = id
 	rebuild()
 
+func set_eyes(id: String) -> void:
+	eyes_id = id
+	rebuild()
+
 func set_face(id: String) -> void:
 	face_id = id
 	rebuild()
@@ -88,3 +92,4 @@ func get_bone(bone_name: String) -> Node2D:
 
 func get_foot_local_y() -> float:
 	return skeleton.get_foot_local_y() if skeleton else 16.0
+

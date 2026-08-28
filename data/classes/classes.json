@@ -2,4 +2,7 @@
   "warrior_test": { "id": "warrior_test", "name": "战士(测试)", "base_modifiers": [ { "stat": "max_hp", "value": 20, "type": "add" }, { "stat": "attack", "value": 4, "type": "add" } ], "level_rewards": { "2": ["feat_armor_master_test"], "3": ["skill_attack_test"] } },
   "ranger_test": { "id": "ranger_test", "name": "游侠(测试)", "base_modifiers": [ { "stat": "dexterity", "value": 3, "type": "add" } ], "level_rewards": { "2": ["skill_attack_test"] } },
   "mage_test": { "id": "mage_test", "name": "法师(测试)", "base_modifiers": [ { "stat": "magic_attack", "value": 5, "type": "add" } ], "level_rewards": { "2": ["skill_heal_test"] } }
+
+,
+  "cleric_test": { "id": "cleric_test", "name": "牧师(测试)", "base_modifiers": [ { "stat": "magic_attack", "value": 3, "type": "add" } ], "level_rewards": { "2": ["heal"] } }
 }

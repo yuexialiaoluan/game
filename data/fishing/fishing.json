@@ -1,0 +1,3 @@
+{
+  "lake_spot": { "id": "lake_spot", "available_fish": [ { "fish_id": "fish_common", "weight": 80, "rarity": "common" }, { "fish_id": "fish_rare", "weight": 20, "rarity": "rare" } ], "time_cost": 30 }
+}

@@ -15,3 +15,9 @@
 
 ## 依赖
 Actor、Recruitment、Condition/Effect、Equipment/Skills、Combat、Save。
+
+## 服务
+PartyService 管理 Active<=4 / Reserve<=4 / 总<=8，支持 swap。
+
+## Recruitment
+招募成功后由 PartyService 管理 Active/Reserve。

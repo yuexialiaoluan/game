@@ -15,3 +15,9 @@
 
 ## 依赖
 Actor、Condition/Effect、Event、Save、Economy/Shop、Quest/Dialogue。
+
+## Service
+RelationshipService 统一读取/修改关系。
+
+## Crime
+Crime 按 Faction 修改声望，不全局广播。

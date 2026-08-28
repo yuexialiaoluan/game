@@ -13,3 +13,6 @@
 
 ## 依赖
 配置/数据、Event（输入事件广播）。
+
+## Combat Input
+战斗输入经 InputService，不直接绑定 KeyCode。

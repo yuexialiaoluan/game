@@ -1,0 +1,4 @@
+{
+  "bandit": { "id": "bandit", "can_surrender": true, "conditions": { "type": "hp_percent", "subject": "actor:bandit", "operator": "<=", "value": 30 } },
+  "goblin": { "id": "goblin", "can_surrender": true, "conditions": { "type": "hp_percent", "subject": "actor:goblin", "operator": "<=", "value": 40 } }
+}

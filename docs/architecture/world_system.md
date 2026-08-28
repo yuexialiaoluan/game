@@ -16,3 +16,9 @@
 
 ## 依赖
 Location、Event、Condition/Effect、Save、Scene Management、Time/Weather。
+
+## Interaction 状态
+Interactable 对象状态写入 WorldState，不保存 Scene Node。
+
+## Stealth
+Visibility/光照/天气经 WorldState 与 Time/Weather 服务影响检测。

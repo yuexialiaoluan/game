@@ -17,3 +17,6 @@ Weapon、Armor、Accessory、Clothing、Consumable、Material、Quest Item、Key
 
 ## 依赖
 Content Database、Appearance（装备外观）、Crafting、Economy/Shop、Loot、Save。
+
+## 服务
+InventoryService / EquipmentService 统一操作，装备需求用 ConditionEvaluator。

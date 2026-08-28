@@ -1,0 +1,10 @@
+{
+  "rest_short": { "id": "rest_short", "name": "短休息", "cost_type": "fixed", "base_minutes": 60, "modifiers": [] },
+  "sleep": { "id": "sleep", "name": "睡觉", "cost_type": "fixed", "base_minutes": 480, "modifiers": [] },
+  "fish": { "id": "fish", "name": "钓鱼", "cost_type": "fixed", "base_minutes": 30, "modifiers": [] },
+  "craft": { "id": "craft", "name": "制作", "cost_type": "fixed", "base_minutes": 60, "modifiers": [] },
+  "travel_small": { "id": "travel_small", "name": "短途旅行", "cost_type": "fixed", "base_minutes": 120, "modifiers": [ { "type": "percent", "value": -20, "condition": { "type": "talent", "subject": "player", "key": "talent_master_traveler" } } ] },
+  "harvest": { "id": "harvest", "name": "采集", "cost_type": "fixed", "base_minutes": 15, "modifiers": [] },
+  "read": { "id": "read", "name": "阅读", "cost_type": "fixed", "base_minutes": 30, "modifiers": [] },
+  "explore_area": { "id": "explore_area", "name": "探索区域", "cost_type": "random", "random_min": 20, "random_max": 40, "modifiers": [] }
+}

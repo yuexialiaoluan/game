@@ -18,3 +18,6 @@ UI 与游戏逻辑分离：UI 只读取状态、发送意图、订阅事件。
 
 ## 依赖
 Localization、Event、各系统服务接口、Camera（HUD 对齐）。
+
+## RPG UI
+RPGUI 只读服务结果；UI → Service → Gameplay State → EventBus → UI 刷新。

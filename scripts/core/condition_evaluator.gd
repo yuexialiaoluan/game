@@ -4,6 +4,8 @@ class_name ConditionEvaluator
 static func evaluate(cond, ctx: EvaluatorContext) -> bool:
 	if cond == null:
 		return true
+	if cond is Dictionary and cond.is_empty():
+		return true
 	var type := str(cond.get("type", ""))
 	match type:
 		"all":
@@ -64,7 +66,7 @@ static func _resolve(cond, ctx: EvaluatorContext):
 		"reputation":
 			return float(actor.reputation.get(key, 0.0)) if actor != null else 0.0
 		"quest":
-			return ctx.game_state.quest_state.get(key, "")
+			return ctx.quest_service.get_state(key) if ctx.quest_service != null else ctx.game_state.quest_state.get(key, "")
 		"story_flag":
 			return ctx.game_state.story_flags.get_flag(key)
 		"event_state":
@@ -74,13 +76,17 @@ static func _resolve(cond, ctx: EvaluatorContext):
 		"location":
 			return ctx.location
 		"time":
-			return ctx.time
+			return ctx.time_service.get_time_hours() if ctx.time_service != null else ctx.time
 		"date":
-			return ctx.date
+			return ctx.time_service.get_current_day() if ctx.time_service != null else ctx.date
+		"weekday":
+			return ctx.time_service.get_current_weekday() if ctx.time_service != null else ""
 		"season":
-			return ctx.season
+			return ctx.time_service.get_current_season() if ctx.time_service != null else ctx.season
+		"day_phase":
+			return ctx.time_service.get_day_phase() if ctx.time_service != null else ""
 		"weather":
-			return ctx.weather
+			return ctx.weather_service.get_weather(str(cond.get("region", "default"))) if ctx.weather_service != null else ctx.weather
 		"distance":
 			return ctx.distance
 		"combat_state":
@@ -95,6 +101,10 @@ static func _resolve(cond, ctx: EvaluatorContext):
 			return ctx.captured_state
 		"actor_state":
 			return actor.state if actor != null else ""
+		"hp":
+			return actor.get_hp() if actor != null else 0.0
+		"hp_percent":
+			return (actor.get_hp() / actor.max_hp() * 100.0) if actor != null else 0.0
 		_:
 			return null
 
@@ -161,3 +171,7 @@ static func _num(x) -> float:
 	if x is bool:
 		return 1.0 if x else 0.0
 	return float(x)
+
+
+
+

@@ -28,3 +28,9 @@
 ## 本地化
 - 所有面向玩家的文本使用 key，如 `quest.001.title`。
 - 逻辑只引用 key，由 LocalizationService 在表现层解析。
+
+## Save Data 表示
+- 存档使用显式 `SaveGameData` DTO + 版本化 JSON（见 `save_system.md`）。
+- 运行时对象（Actor/Node）通过 `to_save_data()`/`apply_save_data()` 转为纯字典。
+- 内容引用使用稳定 ID；运行时实例使用 Actor ID/Character ID。
+- RNG 保存 `rng_state`；外观只保存 ID 与自定义参数，不保存渲染结果。

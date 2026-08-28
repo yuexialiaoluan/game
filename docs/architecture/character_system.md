@@ -25,3 +25,6 @@
 
 ## 依赖
 Data Model、Progression、Skills/Feats/Talents、StatusEffects、Equipment/Inventory、Appearance、Faction/Relationship/Reputation、Save。
+
+## 服务
+属性加点通过 CharacterService.allocate_attribute()，UI 不直接改字段。

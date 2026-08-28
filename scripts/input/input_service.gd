@@ -10,6 +10,8 @@ func _register() -> void:
 	_key_action("move_left", KEY_A, KEY_LEFT)
 	_key_action("move_right", KEY_D, KEY_RIGHT)
 	_key_action("interact", KEY_E, 0)
+	_key_action("interaction_confirm", KEY_ENTER, 0)
+	_key_action("interaction_cancel", KEY_ESCAPE, 0)
 	_key_action("attack", KEY_SPACE, 0)
 	_key_action("cancel", KEY_ESCAPE, 0)
 	_mouse_wheel_action("camera_zoom_in", MOUSE_BUTTON_WHEEL_UP)
@@ -33,3 +35,4 @@ func _mouse_wheel_action(action: String, button: int) -> void:
 	ev.button_index = button
 	ev.pressed = true
 	InputMap.action_add_event(action, ev)
+

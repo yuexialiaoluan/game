@@ -1,19 +1,9 @@
-# Time / Calendar / Weather 系统
+# Time / Calendar / Weather（总览）
 
-## 支持
-时间、日期、星期、季节、昼夜、天气。
+本主题已拆分为：
+- `time_system.md`：TimeService 与行动推进时间。
+- `calendar_system.md`：CalendarService 与游戏历法。
+- `weather_system.md`：WeatherService 与区域天气。
+- `action_time_cost.md`：统一行动时间消耗。
 
-## 影响
-NPC 行为、商店营业、NPC 位置、钓鱼、资源、怪物、任务、随机事件、地下城、偷窃难度。
-
-## 设计
-- `TimeService` 维护世界时间与日历；推进触发时间事件。
-- `WeatherService` 维护地区天气；变化触发事件。
-- 其他系统订阅时间/天气事件，而非轮询或硬编码。
-
-## 数据
-- 季节/昼夜/天气的时长与影响用数据配置。
-- 天气按地区/气候定义。
-
-## 依赖
-Event、World/Region、Save（时间与天气需存档）、RNG（天气随机）。
+核心机制：**Gameplay Action 推进时间**，而非实时世界时间。

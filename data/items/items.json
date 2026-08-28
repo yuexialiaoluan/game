@@ -1,5 +1,11 @@
 {
-  "healing_potion": { "id": "healing_potion", "name": "治疗药水", "type": "consumable" },
-  "iron_ore": { "id": "iron_ore", "name": "铁矿石", "type": "material" },
-  "wood": { "id": "wood", "name": "木材", "type": "material" }
+  "healing_potion": { "id": "healing_potion", "name": "治疗药水", "description": "恢复50点HP。", "type": "consumable", "rarity": "common", "weight": 0.1, "value": 10, "effects": [ { "type": "modify_hp", "amount": 50 } ] },
+  "iron_ore": { "id": "iron_ore", "name": "铁矿石", "description": "常见矿石材料。", "type": "material", "rarity": "common", "weight": 1.0, "value": 2, "effects": [] },
+  "wood": { "id": "wood", "name": "木材", "description": "常见木材。", "type": "material", "rarity": "common", "weight": 1.0, "value": 1, "effects": [] },
+  "fish_common": { "id": "fish_common", "name": "普通鱼", "description": "一条普通鱼。", "type": "material", "rarity": "common", "weight": 0.5, "value": 3, "effects": [] },
+  "fish_rare": { "id": "fish_rare", "name": "稀有鱼", "description": "一条稀有鱼。", "type": "material", "rarity": "rare", "weight": 0.5, "value": 30, "effects": [] }
+
+,
+  "goblin_tooth": { "id": "goblin_tooth", "name": "哥布林牙齿", "type": "material", "rarity": "common", "weight": 0.1, "value": 5, "effects": [] },
+  "mana_dust": { "id": "mana_dust", "name": "魔力粉尘", "type": "material", "rarity": "common", "weight": 0.1, "value": 8, "effects": [] }
 }

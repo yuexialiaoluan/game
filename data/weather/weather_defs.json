@@ -1,0 +1,14 @@
+{
+  "regions": {
+    "default": { "transition_weights": { "clear": 60, "cloudy": 20, "rain": 15, "storm": 5 } },
+    "north": { "transition_weights": { "snow": 50, "cloudy": 30, "clear": 20 } }
+  },
+  "weather": {
+    "clear": { "id": "clear", "name": "晴天", "min_duration": 360, "max_duration": 720 },
+    "cloudy": { "id": "cloudy", "name": "多云", "min_duration": 180, "max_duration": 360 },
+    "rain": { "id": "rain", "name": "下雨", "min_duration": 120, "max_duration": 240 },
+    "storm": { "id": "storm", "name": "暴雨", "min_duration": 60, "max_duration": 120 },
+    "fog": { "id": "fog", "name": "大雾", "min_duration": 120, "max_duration": 240 },
+    "snow": { "id": "snow", "name": "下雪", "min_duration": 240, "max_duration": 480 }
+  }
+}
