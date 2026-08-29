@@ -8,6 +8,7 @@
     "objectives": [ { "id": "collect_iron", "type": "collect", "item": "iron_ore", "target": 3, "progress": 0 } ],
     "rewards": [
       { "type": "add_gold", "amount": 100 },
+      { "type": "add_item", "id": "weapon_iron_sword_01", "qty": 1 },
       { "type": "modify_relationship", "subject": "player", "target": "blacksmith_test", "key": "affinity", "amount": 5 },
       { "type": "set_world_state", "scope": "location", "key": "village", "field": "iron_delivered", "value": true },
       { "type": "set_story_flag", "flag": "quest_iron_ore_done", "value": true }
@@ -21,5 +22,18 @@
     "accept_conditions": {},
     "objectives": [ { "id": "harvest_iron", "type": "collect", "item": "iron_ore", "target": 3, "progress": 0 } ],
     "rewards": [ { "type": "add_gold", "amount": 50 } ]
+  },
+  "quest_goblin_threat": {
+    "id": "quest_goblin_threat",
+    "title": "清除河岸威胁",
+    "description": "守卫请求你击败在村外徘徊的哥布林弓手。",
+    "type": "side",
+    "accept_conditions": {},
+    "objectives": [ { "id": "defeat_goblin_archer", "type": "defeat", "target_id": "goblin_archer", "target": 1, "progress": 0 } ],
+    "rewards": [
+      { "type": "add_gold", "amount": 75 },
+      { "type": "modify_relationship", "subject": "player", "target": "hunter", "key": "affinity", "amount": 60 },
+      { "type": "set_story_flag", "flag": "quest_goblin_threat_done", "value": true }
+    ]
   }
 }

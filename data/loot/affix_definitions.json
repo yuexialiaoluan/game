@@ -1,0 +1,29 @@
+{
+  "poor": [],
+  "common": [],
+  "uncommon": [
+    {"id":"green_vigor","name":"坚韧的","stat":"max_hp","min":8,"max":22},
+    {"id":"green_force","name":"强击的","stat":"attack","min":2,"max":7},
+    {"id":"green_guard","name":"守护的","stat":"defense","min":2,"max":7}
+  ],
+  "rare": [
+    {"id":"blue_swift","name":"迅捷的","stat":"dexterity","min":1,"max":5},
+    {"id":"blue_might","name":"勇武的","stat":"strength","min":1,"max":5},
+    {"id":"blue_focus","name":"专注的","stat":"magic_attack","min":2,"max":8}
+  ],
+  "epic": [
+    {"id":"purple_bastion","name":"壁垒的","stat":"defense","min":5,"max":14},
+    {"id":"purple_hunter","name":"猎手的","stat":"attack","min":5,"max":14},
+    {"id":"purple_titan","name":"泰坦的","stat":"max_hp","min":20,"max":55}
+  ],
+  "legendary": [
+    {"id":"orange_flame","name":"烈焰的","stat":"attack","min":10,"max":25},
+    {"id":"orange_aegis","name":"圣盾的","stat":"defense","min":10,"max":25},
+    {"id":"orange_oracle","name":"先知的","stat":"magic_attack","min":10,"max":25}
+  ],
+  "artifact": [
+    {"id":"red_dead_soul","name":"死魂灵","stat":"attack","min":20,"max":45,"description":"每回合损失最大生命值 10%","combat_effect":{"type":"max_hp_percent_damage","percent":10}},
+    {"id":"red_sovereign","name":"王权的","stat":"attack","min":20,"max":45},
+    {"id":"red_fortress","name":"天垒的","stat":"defense","min":20,"max":45}
+  ]
+}

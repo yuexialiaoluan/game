@@ -2,15 +2,15 @@ class_name CharacterBillboard3D
 extends Node3D
 
 ## 将现有 2D 分层角色渲染到 SubViewport，再以 Sprite3D billboard 放入 3D 世界。
-const VIEWPORT_SIZE := Vector2i(80, 96)
+const VIEWPORT_SIZE := Vector2i(96, 96)
 const PIXEL_SIZE := 0.03125
-const FOOT_PIVOT := Vector2(40, 80)
+const FOOT_PIVOT := Vector2(48, 96)
 
 var visual: CharacterVisual
 var sub_viewport: SubViewport
 var sprite: Sprite3D
 
-func setup(db: CharacterVisualDB, body_id: String, hair_id: String, clothing_id: String, face_id: String = "", eyes_id: String = "eyes_default_01") -> void:
+func setup(db: CharacterVisualDB, body_id: String, hair_id: String, clothing_id: String, face_id: String = "", eyes_id: String = "eyes_default_01", world_sprite_id: String = "") -> void:
 	sub_viewport = SubViewport.new()
 	sub_viewport.name = "SubViewport"
 	sub_viewport.transparent_bg = true
@@ -22,7 +22,7 @@ func setup(db: CharacterVisualDB, body_id: String, hair_id: String, clothing_id:
 	visual.name = "Visual2D"
 	visual.position = Vector2(FOOT_PIVOT.x, FOOT_PIVOT.y - CharacterSkeleton.FOOT_LOCAL_Y)
 	sub_viewport.add_child(visual)
-	visual.setup(db, body_id, hair_id, clothing_id, face_id, eyes_id)
+	visual.setup(db, body_id, hair_id, clothing_id, face_id, eyes_id, world_sprite_id)
 
 	sprite = Sprite3D.new()
 	sprite.name = "Billboard"

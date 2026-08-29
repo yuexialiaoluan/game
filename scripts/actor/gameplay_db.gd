@@ -57,3 +57,18 @@ func get_item(id: String) -> Dictionary:
 func get_equipment(id: String) -> Dictionary:
 	return equipment.get(id, {}) as Dictionary
 
+func register_equipment(definition: Dictionary) -> void:
+	var id := str(definition.get("id", ""))
+	if id != "":
+		equipment[id] = definition.duplicate(true)
+
+func register_item(definition: Dictionary) -> void:
+	var id := str(definition.get("id", ""))
+	if id != "":
+		items[id] = definition.duplicate(true)
+
+func register_talent(definition: Dictionary) -> void:
+	var id := str(definition.get("id", ""))
+	if id != "":
+		talents[id] = definition.duplicate(true)
+

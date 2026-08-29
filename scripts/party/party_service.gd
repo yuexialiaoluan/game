@@ -7,9 +7,24 @@ const RESERVE_MAX := 4
 var active: Array = []
 var reserve: Array = []
 var bus: EventBus = null
+var shared_inventory_owner: Actor = null
 
 func setup(p_bus: EventBus = null) -> void:
 	bus = p_bus
+
+func set_shared_inventory_owner(actor: Actor) -> void:
+	shared_inventory_owner = actor
+
+func get_shared_inventory_owner(fallback: Actor = null) -> Actor:
+	return shared_inventory_owner if shared_inventory_owner != null else fallback
+
+func get_shared_inventory(fallback: Actor = null) -> Dictionary:
+	var owner := get_shared_inventory_owner(fallback)
+	return owner.inventory if owner != null else {}
+
+func has_shared_item(item_id: String, fallback: Actor = null) -> bool:
+	var owner := get_shared_inventory_owner(fallback)
+	return owner != null and owner.has_item(item_id)
 
 func add(actor: Actor) -> bool:
 	if active.size() < ACTIVE_MAX:

@@ -1,19 +1,76 @@
 {
-  "dialogue_blacksmith_iron": {
-    "id": "dialogue_blacksmith_iron",
-    "speaker": "blacksmith_test",
-    "text": "dialogue_blacksmith_iron.line_01",
+	"dialogue_blacksmith_iron": {
+	"id": "dialogue_blacksmith_iron",
+	"speaker": "blacksmith_test",
+	"text": "铁匠放下锤子，看了看你。\n\n“北边森林的旧矿脉已经不太安全了。如果你愿意帮我带回三块铁矿，我就给你准备一件像样的护具。”",
+	"choices": [
+	  { "id": "help", "text": "我会带回铁矿。", "conditions": { "type": "quest", "key": "quest_iron_ore", "operator": "==", "value": "Available" }, "effects": [ { "type": "accept_quest", "quest_id": "quest_iron_ore" } ] },
+	  { "id": "turn_in", "text": "我已经带回三块铁矿。", "conditions": { "type": "all", "conditions": [ { "type": "quest", "key": "quest_iron_ore", "operator": "==", "value": "Accepted" }, { "type": "inventory", "subject": "player", "key": "iron_ore", "operator": ">=", "value": 3 } ] }, "world_action": "turn_in_iron", "effects": [] },
+	  { "id": "decline", "text": "我暂时没有时间。", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "declined_iron", "value": true } ] }
+	]
+  },
+	"dialogue_villager": {
+	  "id": "dialogue_villager", "speaker": "villager",
+	  "text": "“欢迎来到边境村。”村民指向广场。\n\n“酒馆能让你歇脚，商人那里可以买补给。天黑以后，最好别往森林深处走。”",
+	  "choices": [
+		{ "id": "ask_village", "text": "这里最近发生了什么？", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "heard_village_rumor", "value": true } ] },
+		{ "id": "leave", "text": "再见。", "conditions": {}, "effects": [] }
+	  ]
+	},
+	"dialogue_guard": {
+	  "id": "dialogue_guard", "speaker": "guard",
+	  "text": "守卫扶着长枪站在入口。\n\n“最近有哥布林在河对岸活动。出了村口向北走时，记得把武器握紧。”",
+	  "choices": [
+		{ "id": "hunt_goblins", "text": "我去清除那里的威胁。", "conditions": { "type": "quest", "key": "quest_goblin_threat", "operator": "==", "value": "Available" }, "world_action": "accept_goblin_hunt", "effects": [] },
+		{ "id": "ask_guard", "text": "我会保持警惕。", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "guard_warning_heard", "value": true } ] }
+	  ]
+	},
+	"dialogue_hunter": {
+	  "id": "dialogue_hunter", "speaker": "hunter",
+	  "text": "猎人整理着箭袋。\n\n“河边有两个安静的钓点，雨后能钓到更好的鱼。森林里的足迹不全是野兽留下的。”",
+	  "choices": [
+		{ "id": "recruit", "text": "哥布林已经解决了，和我同行吧。", "conditions": { "type": "quest", "key": "quest_goblin_threat", "operator": "==", "value": "Completed" }, "world_action": "recruit_hunter", "effects": [] },
+		{ "id": "ask_hunt", "text": "我会留意那些足迹。", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "hunter_advice_heard", "value": true } ] }
+	  ]
+	},
+	"dialogue_mercenary": {
+	  "id": "dialogue_mercenary", "speaker": "mercenary",
+	  "text": "佣兵坐在路旁磨剑。\n\n“我为报酬而战，也为能让我活着回来的队伍而战。村外的营地可不是一个人该去的地方。”",
+	  "choices": [
+		{ "id": "recruit", "text": "付你 300 Gold，加入我的队伍。", "conditions": { "type": "currency", "key": "gold", "operator": ">=", "value": 300 }, "world_action": "recruit_mercenary", "effects": [] },
+		{ "id": "ask_price", "text": "我会准备好报酬。", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "mercenary_price_known", "value": true } ] }
+	  ]
+	},
+  "dialogue_merchant": {
+    "id": "dialogue_merchant", "speaker": "merchant",
+    "text": "商人笑着整理货架。\n\n“补给、材料和装备都在这里。想看看货吗？”",
     "choices": [
-      { "id": "help", "text": "dialogue_blacksmith_iron.help", "conditions": { "type": "quest", "key": "quest_iron_ore", "operator": "==", "value": "Available" }, "effects": [ { "type": "accept_quest", "quest_id": "quest_iron_ore" } ] },
-      { "id": "decline", "text": "dialogue_blacksmith_iron.decline", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "declined_iron", "value": true } ] }
+      { "id": "shop", "text": "让我看看商品。", "conditions": {}, "world_action": "open_shop", "effects": [] },
+      { "id": "leave", "text": "我只是随便看看。", "conditions": {}, "effects": [] }
+    ]
+  },
+  "dialogue_tavern": {
+    "id": "dialogue_tavern", "speaker": "tavern",
+    "text": "酒馆老板擦拭着杯子。\n\n“旅行者，想歇脚、打听消息，还是找同伴？”",
+    "choices": [
+      { "id": "tavern", "text": "带我看看酒馆服务。", "conditions": {}, "world_action": "open_tavern", "effects": [] },
+      { "id": "leave", "text": "以后再来。", "conditions": {}, "effects": [] }
+    ]
+  },
+  "dialogue_adventurer": {
+    "id": "dialogue_adventurer", "speaker": "adventurer",
+    "text": "年轻的冒险者正研究一张手绘地图。\n\n“河对岸有哥布林，我建议先准备好补给和同伴。”",
+    "choices": [
+      { "id": "advice", "text": "谢谢你的提醒。", "conditions": {}, "effects": [ { "type": "set_story_flag", "flag": "adventurer_advice_heard", "value": true } ] },
+      { "id": "leave", "text": "祝你旅途顺利。", "conditions": {}, "effects": [] }
     ]
   },
   "dialogue_persuade": {
-    "id": "dialogue_persuade",
-    "speaker": "npc_test",
-    "text": "dialogue_persuade.line_01",
-    "choices": [
-      { "id": "persuade", "text": "dialogue_persuade.persuade", "conditions": {}, "effects": [ { "type": "run_action", "action_id": "persuade", "target_type": "actor", "target_id": "npc_test" } ] }
-    ]
+	"id": "dialogue_persuade",
+	"speaker": "npc_test",
+	"text": "dialogue_persuade.line_01",
+	"choices": [
+	  { "id": "persuade", "text": "dialogue_persuade.persuade", "conditions": {}, "effects": [ { "type": "run_action", "action_id": "persuade", "target_type": "actor", "target_id": "npc_test" } ] }
+	]
   }
 }

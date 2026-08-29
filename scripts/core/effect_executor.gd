@@ -46,11 +46,12 @@ static func execute(effect, ctx: EvaluatorContext) -> void:
 			if actor != null:
 				_remove_status(actor, str(effect.get("id", "")))
 		"modify_hp":
-			if ctx.player != null:
+			var hp_target: Actor = ctx.effect_target if ctx.effect_target != null else ctx.player
+			if hp_target != null:
 				if amount >= 0.0:
-					ctx.player.heal(amount)
+					hp_target.heal(amount)
 				else:
-					ctx.player.damage(-amount)
+					hp_target.damage(-amount)
 			else:
 				ctx.game_state.player_state["hp"] = float(ctx.game_state.player_state.get("hp", 0.0)) + amount
 		"modify_mp":

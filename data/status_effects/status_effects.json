@@ -4,4 +4,3 @@
   "status_attack_up": { "id": "status_attack_up", "name": "攻击提升", "duration": 4.0, "stackable": false, "modifiers": [ { "stat": "attack", "value": 20, "type": "percent" } ] },
   "status_defense_down": { "id": "status_defense_down", "name": "防御降低", "duration": 4.0, "stackable": false, "modifiers": [ { "stat": "defense", "value": -10, "type": "percent" } ] }
 }
-

@@ -41,6 +41,7 @@ func setup(p_combat_id: String, p_ctx: EvaluatorContext, p_rng: RNGService, play
 
 	_build_turn_order()
 	current_index = 0
+	_apply_turn_start_effects(current_combatant())
 	_emit("combat_started", { "combat_id": combat_id })
 
 func _build_turn_order() -> void:
@@ -65,7 +66,23 @@ func end_turn() -> void:
 		for c in all_combatants():
 			c.movement_remaining = 3
 			c.actions_remaining = 1
+	_apply_turn_start_effects(current_combatant())
 	_emit("turn_changed", { "round": round, "combatant": current_combatant().actor.id if current_combatant() != null else "" })
+
+func _apply_turn_start_effects(combatant: Combatant) -> void:
+	if combatant == null or combatant.actor == null or not combatant.alive:
+		return
+	tick_statuses(combatant)
+	for entry in combatant.actor.get_equipment_combat_effects():
+		var effect: Dictionary = entry.get("effect", {}) as Dictionary
+		if str(effect.get("type", "")) == "max_hp_percent_damage":
+			var damage := combatant.actor.max_hp() * float(effect.get("percent", 0.0)) / 100.0
+			combatant.actor.damage(damage)
+			_emit("affix_triggered", { "actor": combatant.actor.id, "affix": str(entry.get("source", "词条")), "damage": damage })
+	if combatant.actor.is_dead():
+		combatant.alive = false
+		grid.clear_occupant(combatant.position)
+		_emit("actor_defeated", { "actor": combatant.actor.id })
 
 func move(combatant: Combatant, dest: Vector2i) -> bool:
 	var dist: int = abs(dest.x - combatant.position.x) + abs(dest.y - combatant.position.y)

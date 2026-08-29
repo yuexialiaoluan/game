@@ -14,6 +14,12 @@ func _register() -> void:
 	_key_action("interaction_cancel", KEY_ESCAPE, 0)
 	_key_action("attack", KEY_SPACE, 0)
 	_key_action("cancel", KEY_ESCAPE, 0)
+	_key_action("open_inventory", KEY_B, 0)
+	_key_action("open_map", KEY_M, 0)
+	_key_action("open_quest", KEY_J, 0)
+	_key_action("open_party", KEY_T, 0)
+	_key_action("quick_save", KEY_F5, 0)
+	_key_action("quick_load", KEY_F9, 0)
 	_mouse_wheel_action("camera_zoom_in", MOUSE_BUTTON_WHEEL_UP)
 	_mouse_wheel_action("camera_zoom_out", MOUSE_BUTTON_WHEEL_DOWN)
 
@@ -35,4 +41,3 @@ func _mouse_wheel_action(action: String, button: int) -> void:
 	ev.button_index = button
 	ev.pressed = true
 	InputMap.action_add_event(action, ev)
-

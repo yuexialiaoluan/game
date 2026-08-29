@@ -20,6 +20,7 @@ var facing: Vector2 = Vector2(0, -1)
 
 var debug_enabled: bool = false
 var debug_input: Vector2 = Vector2.ZERO
+var input_enabled: bool = true
 var _last_moving: bool = false
 
 func _ready() -> void:
@@ -33,11 +34,11 @@ func _ready() -> void:
 	floor_max_angle = deg_to_rad(floor_max_angle_deg)
 	floor_snap_length = snap_length
 
-func attach_visual(db: CharacterVisualDB, body_id: String, hair_id: String, clothing_id: String) -> void:
+func attach_visual(db: CharacterVisualDB, body_id: String, hair_id: String, clothing_id: String, world_sprite_id: String = "") -> void:
 	billboard = CharacterBillboard3D.new()
 	billboard.name = "Billboard"
 	add_child(billboard)
-	billboard.setup(db, body_id, hair_id, clothing_id)
+	billboard.setup(db, body_id, hair_id, clothing_id, "", "eyes_default_01", world_sprite_id)
 
 func get_visual() -> CharacterVisual:
 	if billboard == null:
@@ -92,6 +93,8 @@ func _physics_process(delta: float) -> void:
 		facing_changed.emit(facing)
 
 func _read_input() -> Vector2:
+	if not input_enabled:
+		return Vector2.ZERO
 	if debug_enabled:
 		return debug_input
 	return Input.get_vector("move_left", "move_right", "move_up", "move_down")

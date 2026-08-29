@@ -11,4 +11,3 @@
   "shield_wood_01": { "id": "shield_wood_01", "name": "木盾", "slot": "shield", "gameplay": { "defense": 4, "weight": 5 }, "visual": { "asset_id": "shield_wood_01", "slot": "shield", "bone": "Hand_L", "offset": [-4, -2], "rotation": 0.2, "scale": [1, 1], "layer": 12, "hide_rules": {}, "override_rules": {}, "size": [14, 20], "shape": "shield", "color": [0.55, 0.35, 0.20, 1] } },
   "wood_shield": { "id": "wood_shield", "name": "木盾(alias)", "slot": "shield", "gameplay": { "defense": 4, "weight": 5 }, "visual": { "asset_id": "shield_wood_01", "slot": "shield", "bone": "Hand_L", "offset": [-4, -2], "rotation": 0.2, "scale": [1, 1], "layer": 12, "hide_rules": {}, "override_rules": {}, "size": [14, 20], "shape": "shield", "color": [0.55, 0.35, 0.20, 1] } }
 }
-

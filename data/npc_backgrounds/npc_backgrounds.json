@@ -1,14 +1,14 @@
 {
   "templates": {
-    "origin": ["边境村庄", "北方城市", "沿海城镇", "山区", "森林地区"],
-    "occupation": ["农夫", "猎人", "铁匠", "商人", "冒险者", "学徒", "士兵"],
-    "personality": ["谨慎", "乐观", "贪财", "沉默", "好奇", "暴躁", "善良"],
-    "motivation": ["赚钱", "寻找亲人", "逃离战争", "成为冒险者", "学习技术", "寻找遗迹"]
+	"origin": ["边境村庄", "北方城市", "沿海城镇", "山区", "森林地区"],
+	"occupation": ["农夫", "猎人", "铁匠", "商人", "冒险者", "学徒", "士兵"],
+	"personality": ["谨慎", "乐观", "贪财", "沉默", "好奇", "暴躁", "善良"],
+	"motivation": ["赚钱", "寻找亲人", "逃离战争", "成为冒险者", "学习技术", "寻找遗迹"]
   },
   "common": {
-    "common_blacksmith": { "id": "common_blacksmith", "short_description": "来自北方山区的年轻铁匠，希望前往王都学习锻造。", "origin": "山区", "occupation": "铁匠", "personality": "沉默", "motivation": "学习技术" }
+	"common_blacksmith": { "id": "common_blacksmith", "short_description": "来自北方山区的年轻铁匠，希望前往王都学习锻造。", "origin": "山区", "occupation": "铁匠", "personality": "沉默", "motivation": "学习技术" }
   },
   "named": {
-    "blacksmith_test": { "id": "blacksmith_test", "is_named": true, "short_description": "来自北方山区的年轻铁匠，希望前往王都学习锻造。", "origin": "山区", "occupation": "铁匠", "personality": "沉默", "motivation": "学习技术", "personal_goal": "赚够500金币离开小镇", "rumor": "听说他父亲曾是士兵", "hidden_info": "他认识伊娃", "relationships": [] }
+	"blacksmith_test": { "id": "blacksmith_test", "is_named": true, "short_description": "来自北方山区的年轻铁匠，希望前往王都学习锻造。", "origin": "山区", "occupation": "铁匠", "personality": "沉默", "motivation": "学习技术", "personal_goal": "赚够500金币离开小镇", "rumor": "听说他父亲曾是士兵", "hidden_info": "他认识伊娃", "relationships": [] }
   }
 }

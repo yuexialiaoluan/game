@@ -14,8 +14,9 @@ var eyes_id: String = "eyes_default_01"
 var hair_id: String = "hair_short_01"
 var clothing_id: String = "clothing_peasant_01"
 var equipment: Dictionary = {}
+var world_sprite: WorldSpriteAdapter
 
-func setup(database: CharacterVisualDB, p_body_id: String, p_hair_id: String, p_clothing_id: String, p_face_id: String = "", p_eyes_id: String = "eyes_default_01") -> void:
+func setup(database: CharacterVisualDB, p_body_id: String, p_hair_id: String, p_clothing_id: String, p_face_id: String = "", p_eyes_id: String = "eyes_default_01", p_world_sprite_id: String = "") -> void:
 	db = database
 	body_id = p_body_id
 	hair_id = p_hair_id
@@ -38,11 +39,25 @@ func setup(database: CharacterVisualDB, p_body_id: String, p_hair_id: String, p_
 	add_child(animator)
 	animator.setup(skeleton)
 
+	# Complete source sprites are only an explicit world-presentation choice.
+	# The default remains the modular resolver path used by battle, previews,
+	# and future replaceable character-part assets.
+	if p_world_sprite_id != "":
+		world_sprite = WorldSpriteAdapter.new()
+		world_sprite.name = "WorldSpriteAdapter"
+		add_child(world_sprite)
+		world_sprite.setup(assets, self, p_world_sprite_id)
+
 	rebuild()
 
 func rebuild() -> void:
 	if resolver != null:
-		resolver.rebuild(body_id, face_id, eyes_id, hair_id, clothing_id, equipment)
+		if world_sprite != null and world_sprite.uses_source_sprite():
+			resolver.clear()
+		else:
+			resolver.rebuild(body_id, face_id, eyes_id, hair_id, clothing_id, equipment)
+	if world_sprite != null:
+		world_sprite.set_equipment(equipment)
 
 func set_equipment(slot: String, id: String) -> void:
 	if id == "":

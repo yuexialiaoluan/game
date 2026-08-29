@@ -19,3 +19,6 @@
 
 ## 统一性
 - 3D 环境与 2D 角色共享统一调色板与像素密度基准，确保融合自然。
+
+## World Assets
+Terrain/Road/Water/Building/Prop 使用 WorldBuilder 模块化占位，并登记 Asset ID。

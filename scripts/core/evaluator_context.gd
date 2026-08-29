@@ -5,6 +5,7 @@ extends RefCounted
 var game_state: GameState
 var actors: Dictionary = {}
 var player: Actor = null
+var effect_target: Actor = null
 var party: Array = []
 var reserve_party: Array = []
 var event_bus = null

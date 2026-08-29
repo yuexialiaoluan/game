@@ -1,5 +1,8 @@
 # Godot 4
 .godot/
+*.import
+__MACOSX/
+._*
 *.tmp
 *.temp
 

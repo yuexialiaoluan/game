@@ -6,4 +6,8 @@
 
 ,
   "quest_npc": { "id": "quest_npc", "can_recruit": true, "conditions": { "type": "quest", "key": "quest_collect_iron", "operator": "==", "value": "Completed" }, "cost": {}, "effects": [] }
+
+,
+  "hunter": { "id": "hunter", "can_recruit": true, "conditions": { "type": "any", "conditions": [ { "type": "relationship", "subject": "player", "target": "hunter", "key": "affinity", "operator": ">=", "value": 50 }, { "type": "quest", "key": "quest_goblin_threat", "operator": "==", "value": "Completed" } ] }, "cost": {}, "effects": [] },
+  "adventurer": { "id": "adventurer", "can_recruit": true, "conditions": { "type": "currency", "key": "gold", "operator": ">=", "value": 150 }, "cost": { "type": "remove_gold", "amount": 150 }, "effects": [] }
 }

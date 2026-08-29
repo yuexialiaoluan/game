@@ -25,3 +25,6 @@ Terrain、Building、Prop、Nature、Dungeon Assets、Interactive Objects、Back
 ## 存储
 - `assets/environment/`（tiles、props、nature、dungeon、background、foreground）。
 - 3D 网格与材质按 `asset_pipeline.md` 规范导入。
+
+## World Building
+地图单位/比例/道路/建筑/角色/相机/PPU/光照/遮挡/Navigation 见 world_building.md。

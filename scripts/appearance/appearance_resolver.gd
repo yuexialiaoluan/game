@@ -61,6 +61,9 @@ func rebuild(body_id: String, face_id: String, eyes_id: String, hair_id: String,
 				tex = TextureFactory.make(str(visual.get("shape", "rect")), _vec2i(visual.get("size", [8, 8])), _color_of(visual, "color"))
 			_add_texture(bone_name, slot, layer, offset, tex, rot, scale, str(visual.get("asset_id", slot)))
 
+func clear() -> void:
+	_clear()
+
 func _tex(spec: Dictionary) -> Texture2D:
 	var aid := str(spec.get("asset_id", ""))
 	if aid == "":

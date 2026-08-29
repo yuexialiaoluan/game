@@ -30,7 +30,7 @@ func get_nearest() -> Interactable3D:
 	var best = null
 	var best_d: float = radius
 	for node in nodes:
-		if not is_instance_valid(node):
+		if not is_instance_valid(node) or not node.visible:
 			continue
 		var d: float = player.global_position.distance_to(node.global_position)
 		if d < best_d:

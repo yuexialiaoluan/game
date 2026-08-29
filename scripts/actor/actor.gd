@@ -68,6 +68,9 @@ func recalculate() -> void:
 		_add_gp(gp.get("attack", 0.0), "attack", str(slot))
 		_add_gp(gp.get("defense", 0.0), "defense", str(slot))
 		_add_gp(gp.get("magic", 0.0), "magic_attack", str(slot))
+		for affix in eq.get("affixes", []) as Array:
+			if affix is Dictionary:
+				_add_gp(affix.get("value", 0.0), str(affix.get("stat", "")), str(slot) + ":affix")
 	for se in status_effects:
 		var sdef := db.get_status(str(se.get("id", "")))
 		_add_mods(sdef.get("modifiers", []), "status:" + str(se.get("id", "")))
@@ -106,8 +109,8 @@ func equip(slot: String, item_id: String) -> void:
 func _sync_visual() -> void:
 	visual.set_mainhand(str(equipment.get("mainhand", "")))
 	visual.set_offhand(str(equipment.get("offhand", "")))
-	visual.set_equipment("helmet", str(equipment.get("head", "")))
-	visual.set_equipment("torso", str(equipment.get("body", "")))
+	visual.set_equipment("helmet", str(equipment.get("helmet", equipment.get("head", ""))))
+	visual.set_equipment("torso", str(equipment.get("chest", equipment.get("body", ""))))
 
 func add_item(item_id: String, qty: int) -> void:
 	inventory[item_id] = int(inventory.get(item_id, 0)) + qty
@@ -324,3 +327,12 @@ func heal(amount: float) -> void:
 
 func is_dead() -> bool:
 	return current_hp <= 0.0
+
+func get_equipment_combat_effects() -> Array:
+	var effects: Array = []
+	for slot in equipment:
+		var definition := db.get_equipment(str(equipment[slot]))
+		for affix in definition.get("affixes", []) as Array:
+			if affix is Dictionary and affix.get("combat_effect", {}) is Dictionary and not (affix.get("combat_effect", {}) as Dictionary).is_empty():
+				effects.append({ "source": str(affix.get("name", "词条")), "effect": (affix.get("combat_effect", {}) as Dictionary).duplicate(true) })
+	return effects

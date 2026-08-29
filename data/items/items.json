@@ -7,5 +7,11 @@
 
 ,
   "goblin_tooth": { "id": "goblin_tooth", "name": "哥布林牙齿", "type": "material", "rarity": "common", "weight": 0.1, "value": 5, "effects": [] },
-  "mana_dust": { "id": "mana_dust", "name": "魔力粉尘", "type": "material", "rarity": "common", "weight": 0.1, "value": 8, "effects": [] }
+  "mana_dust": { "id": "mana_dust", "name": "魔力粉尘", "type": "material", "rarity": "common", "weight": 0.1, "value": 8, "effects": [] },
+  "weapon_wood_sword_01": { "id": "weapon_wood_sword_01", "name": "木剑", "description": "新手常用的木制单手剑。", "type": "weapon", "rarity": "common", "weight": 2.0, "value": 12, "effects": [] },
+  "weapon_iron_sword_01": { "id": "weapon_iron_sword_01", "name": "铁剑", "description": "锻造完成的可靠铁剑。", "type": "weapon", "rarity": "common", "weight": 3.0, "value": 35, "effects": [] },
+  "shield_wood_01": { "id": "shield_wood_01", "name": "木盾", "description": "简单但实用的木制圆盾。", "type": "armor", "rarity": "common", "weight": 5.0, "value": 18, "effects": [] },
+  "armor_leather_01": { "id": "armor_leather_01", "name": "轻甲", "description": "适合旅人的轻便护甲。", "type": "armor", "rarity": "common", "weight": 4.0, "value": 45, "effects": [] },
+  "armor_iron_01": { "id": "armor_iron_01", "name": "铁甲", "description": "能够承受正面冲击的铁制护甲。", "type": "armor", "rarity": "uncommon", "weight": 8.0, "value": 90, "effects": [] },
+  "helmet_iron_01": { "id": "helmet_iron_01", "name": "铁头盔", "description": "保护头部的铁制头盔。", "type": "armor", "rarity": "common", "weight": 3.0, "value": 30, "effects": [] }
 }

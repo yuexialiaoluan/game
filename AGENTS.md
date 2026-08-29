@@ -89,5 +89,7 @@
 
 ## 13. 美术资源规范
 - 美术生产流程、命名、Asset ID 与目录规范见 docs/art/。
-- 游戏逻辑通过 Asset Registry / 稳定 ID 引用资源，不得在脚本里硬编码 es://assets/... 路径。
-
+- 游戏逻辑通过 Asset Registry / 稳定 ID 引用资源，不得在脚本里硬编码 es://assets/... 路径。
+- Prototype / Demo 开发阶段，`assets/` 中现有的角色、UI、环境、Portrait、Icon、VFX、Audio 等素材均可直接接入游戏；审计中的 `UNKNOWN`、`DEV_ONLY` 与未确认 License 不得成为接入阻塞条件。
+- 原始素材不得删除或覆盖。允许建立运行时 Asset ID、导入设置、裁切、缩放、适配器与场景预制件。商业发布前另行完成 License、署名与发行资源裁剪。
+- 评估美术接入以玩家在 EXE 中实际看到和使用的效果为准。优先复用已有表现、UI 与 Gameplay 系统，避免为素材接入重写底层架构或继续保留程序占位画面。

@@ -383,5 +383,3 @@ func _check(cond: bool, name: String) -> void:
 	else:
 		print("FAIL ", name)
 		validation_failures += 1
-
-
